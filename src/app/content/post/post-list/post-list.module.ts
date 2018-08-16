@@ -20,7 +20,6 @@ import { NgModule } from '@angular/core';
     PostListComponent
   ],
   providers: [],
-  bootstrap: []
 })
 
 export class PostListModule { }
