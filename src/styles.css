@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+html {
+  font-size: 125%;
+  line-height: 1.5;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.fl-right {
+  float: right;
+}
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
