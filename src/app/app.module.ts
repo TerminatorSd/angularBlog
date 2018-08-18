@@ -11,6 +11,8 @@ import { PostDetailComponent } from './content/post/post-detail/post-detail.comp
 import { AppRoutingModule } from './/app-routing.module';
 import { LifeComponent } from './content/life/life.component';
 import { AboutComponent } from './content/about/about.component';
+import { ManagePostListComponent } from './content/manage/manage-post-list/manage-post-list.component';
+import { ManagePostDetailComponent } from './content/manage/manage-post-detail/manage-post-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AboutComponent } from './content/about/about.component';
     SinglePostComponent,
     PostDetailComponent,
     LifeComponent,
-    AboutComponent
+    AboutComponent,
+    ManagePostListComponent,
+    ManagePostDetailComponent
   ],
   imports: [
     BrowserModule,
