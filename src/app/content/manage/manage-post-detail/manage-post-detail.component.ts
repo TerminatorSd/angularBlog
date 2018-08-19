@@ -16,7 +16,7 @@ export class ManagePostDetailComponent implements OnInit {
   }
   
   doTransfer() {
-    const inputStr = document.querySelector('#input').value;
-    console.log(asdf(inputStr));
+    // const inputStr = document.querySelector('#input').value;
+    // console.log(asdf(inputStr));
   }
 }

@@ -9,6 +9,7 @@
 import { SinglePostComponent } from './single-post/single-post.component';
 import { PostListComponent } from './post-list.component'
 import { NgModule } from '@angular/core';
+import { PostService } from '../post.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { NgModule } from '@angular/core';
   exports: [
     PostListComponent
   ],
-  providers: [],
+  providers: [PostService],
 })
 
 export class PostListModule { }
