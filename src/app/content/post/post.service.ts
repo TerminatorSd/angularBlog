@@ -26,7 +26,7 @@ export class PostService {
   }
 
   getDetail(id): Observable<any> {
-    return this.http.get<any>(`${this.domain}/posts/list'/?id=${id}`)
+    return this.http.get<any>(`${this.domain}/posts/detail?id=${id}`)
       .pipe(
         tap(res => this.log('fetched detail')),
         catchError(this.handleError('getList', []))

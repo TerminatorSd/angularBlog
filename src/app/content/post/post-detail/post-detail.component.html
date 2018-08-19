@@ -1,10 +1,10 @@
-<div class="article">
+<div class="article" *ngIf="postContent">
   <div class="article-header">
-    <div class="date">14 JULY 2018/PRACTICE</div>
-    <div class="title">如何在Angular 项目中使用Prism.js?</div>
+    <div class="date">{{ postContent.created_at * 1000 | date: 'fullDate' }} / {{ postContent.label | uppercase }}</div>
+    <div class="title">{{ postContent.title }}</div>
     <img src="../../../../assets/images/qiaoba.jpg" alt="">
   </div>
   <div class="article-content">
-    <p>经过以上三步就可以完成简单的代码高亮操作，通过观察形成的html 结构我们可以发现，Prism.js 所做的事情实际上是使用js 将你用code 标签包含的代码部分拆分，使用不同类名的span 标签包裹。然后利用提前设定好的皮肤，即你下载的css 文件实现高亮效果，不同的文件就对应了不同的皮肤。</p>
+    <p>{{ postContent.abbr }}</p>
   </div>
 </div>

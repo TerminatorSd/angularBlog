@@ -1,6 +1,6 @@
 <div class="post">
   <section class="header">
-    <span class="meta-info">{{ post.created_at }} {{ post.label }}</span>
+    <span class="meta-info">{{ post.created_at * 1000 | date: 'fullDate' }} {{ post.label }}</span>
     <span class="title">
       <a [routerLink]="['/post/detail', post._id]">{{ post.title }}</a>
     </span>

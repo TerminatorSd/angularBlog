@@ -7,7 +7,7 @@
 */
 
 import { SinglePostComponent } from './single-post/single-post.component';
-import { PostListComponent } from './post-list.component'
+import { PostListComponent } from './post-list.component';
 import { NgModule } from '@angular/core';
 import { PostService } from '../post.service';
 

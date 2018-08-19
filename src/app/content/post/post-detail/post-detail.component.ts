@@ -10,6 +10,7 @@ import { PostService } from '../post.service';
 export class PostDetailComponent implements OnInit {
 
   private postId: number;
+  private postContent: object;
 
   constructor(private route: ActivatedRoute, private postService: PostService) { }
 
@@ -24,10 +25,9 @@ export class PostDetailComponent implements OnInit {
     this.postService.getDetail(this.postId)
       .subscribe(res => {
         if (res.code === 0) {
-          console.log(res.data);
-          // this.postsList = res.data;
+          this.postContent = res.data;
         } else {
-          console.log('get post list failed');
+          console.log('get post detail failed');
         }
       });
   }
