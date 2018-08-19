@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,8 +12,8 @@ import { PostDetailComponent } from './content/post/post-detail/post-detail.comp
 import { AppRoutingModule } from './/app-routing.module';
 import { LifeComponent } from './content/life/life.component';
 import { AboutComponent } from './content/about/about.component';
-import { ManagePostListComponent } from './content/manage/manage-post-list/manage-post-list.component';
-import { ManagePostDetailComponent } from './content/manage/manage-post-detail/manage-post-detail.component';
+import { ManagePostListComponent } from './content/manage/post/manage-post-list/manage-post-list.component';
+import { ManagePostDetailComponent } from './content/manage/post/manage-post-detail/manage-post-detail.component';
 
 @NgModule({
   declarations: [

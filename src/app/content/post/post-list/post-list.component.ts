@@ -8,6 +8,8 @@ import { PostService } from '../post.service';
 })
 export class PostListComponent implements OnInit {
 
+  private postsList: any;
+
   constructor(private postService: PostService) { }
 
   ngOnInit() {
@@ -17,7 +19,11 @@ export class PostListComponent implements OnInit {
   getPostList() {
     this.postService.getList()
       .subscribe(res => {
-        console.log(res);
+        if (res.code === 0) {
+          this.postsList = res.data;
+        } else {
+          console.log('get post list failed');
+        }
       });
   }
 }

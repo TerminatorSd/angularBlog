@@ -18,10 +18,18 @@ export class PostService {
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
   getList (): Observable<any> {
-    return this.http.get<any>(this.domain + '/posts/list')
+    return this.http.get<any>(`${this.domain}/posts/list`)
       .pipe(
         tap(res => this.log('fetched list')),
-        catchError(this.handleError('getHeroes', []))
+        catchError(this.handleError('getList', []))
+      );
+  }
+
+  getDetail(id): Observable<any> {
+    return this.http.get<any>(`${this.domain}/posts/list'/?id=${id}`)
+      .pipe(
+        tap(res => this.log('fetched detail')),
+        catchError(this.handleError('getList', []))
       );
   }
 
