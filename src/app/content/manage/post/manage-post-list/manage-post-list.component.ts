@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from '../../../post/post.service';
 
 @Component({
   selector: 'app-manage-post-list',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagePostListComponent implements OnInit {
 
-  constructor() { }
+  private postsList: any;
+
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
+    this.getPostList();
+  }
+
+  getPostList() {
+    this.postService.getList()
+      .subscribe(res => {
+        if (res.code === 0) {
+          this.postsList = res.data;
+        } else {
+          console.log('get post list failed');
+        }
+      });
   }
 
 }
