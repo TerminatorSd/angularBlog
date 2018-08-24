@@ -1,3 +1,13 @@
-<p>
-  <a routerLink="/manage/detail">click to jump to detail</a>
-</p>
+<div class="container">
+  <div *ngFor="let item of postsList" class="item clear-fix">
+    <div class="left">
+      <p class="title">{{ item.title }}</p>
+      <span class="time">{{ item.created_at * 1000 | date: 'fullDate' }}</span> | 
+      <span class="label">{{ item.label }}</span>
+    </div>
+    <div class="right">
+      <sd-button type="default">查看</sd-button>
+      <sd-button type="danger">删除</sd-button>
+    </div>
+  </div>
+</div>

@@ -14,6 +14,7 @@ import { LifeComponent } from './content/life/life.component';
 import { AboutComponent } from './content/about/about.component';
 import { ManagePostListComponent } from './content/manage/post/manage-post-list/manage-post-list.component';
 import { ManagePostDetailComponent } from './content/manage/post/manage-post-detail/manage-post-detail.component';
+import { ButtonComponent } from './basic/button/button.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ManagePostDetailComponent } from './content/manage/post/manage-post-det
     LifeComponent,
     AboutComponent,
     ManagePostListComponent,
-    ManagePostDetailComponent
+    ManagePostDetailComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
