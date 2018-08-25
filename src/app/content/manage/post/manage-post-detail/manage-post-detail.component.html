@@ -1,4 +1,19 @@
-<div class="manage-post-detail">
-  <button (click)="doTransfer()">ok</button>
-  <textarea name="" id="input" cols="30" rows="10"></textarea>
+<!--
+@author shaoDong
+@email scut_sd@163.com
+@create date 2018-08-25 09:31:31
+@modify date 2018-08-25 09:31:31
+@desc manage post detail
+-->
+
+<div class="container" *ngIf="postInfo">
+  <div class="content">
+    <textarea name="" id="markdown" cols="30" rows="10">{{ postInfo.markdown }}</textarea>
+    <div class="html">
+      {{ postInfo.html }}
+    </div>
+  </div>
+  <div class="footer">
+    <sd-button type="default" (click)="publishBlog()">发布</sd-button>
+  </div>
 </div>

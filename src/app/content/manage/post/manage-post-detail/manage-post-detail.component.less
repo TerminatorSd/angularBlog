@@ -1,10 +1,26 @@
-.manage-post-detail {
-    width: 100%;
-    overflow: hidden;
+.container {
+  width: 1200px;
+  margin: 20px auto;
+  .content {
     textarea {
-        display: block;
-        width: 1200px;
-        height: 800px;
-        margin: 20px auto;
+      width: 560px;
+      height: 800px;
+      padding: 8px;
+      border: 1px solid #e1e1e1;
+      &:nth-child(2) {
+        margin-left: 20px;
+      }
     }
+    .html {
+      float: right;
+      width: 560px;
+      height: 800px;
+      padding: 8px;
+      border: 1px solid #e1e1e1;
+    }
+  }
+}
+
+.ml-20 {
+  margin-left: 20px;
 }

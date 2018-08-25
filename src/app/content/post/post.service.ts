@@ -33,6 +33,14 @@ export class PostService {
       );
   }
 
+  updatePost(post: any): Observable<any> {
+    return this.http.post<any>(`${this.domain}/posts/update`, post, httpOptions)
+      .pipe(
+        tap(res => this.log('update detail')),
+        catchError(this.handleError('update', []))
+      );
+  }
+
   /** GET heroes from the server */
   // getHeroes (): Observable<any> {
   //   return this.http.get<any>(this.heroesUrl)

@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="mpl-header">
+    <sd-button typp="default">新增</sd-button>
+  </div>
   <div *ngFor="let item of postsList" class="item clear-fix">
     <div class="left">
       <p class="title">{{ item.title }}</p>
@@ -6,7 +9,7 @@
       <span class="label">{{ item.label }}</span>
     </div>
     <div class="right">
-      <sd-button type="default">查看</sd-button>
+      <sd-button type="default" [routerLink]="['/manage/detail', item._id]">查看</sd-button>
       <sd-button type="danger">删除</sd-button>
     </div>
   </div>

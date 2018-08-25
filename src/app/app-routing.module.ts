@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'life', component: LifeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'manage/list', component: ManagePostListComponent },
-  { path: 'manage/detail', component: ManagePostDetailComponent },
+  { path: 'manage/detail/:id', component: ManagePostDetailComponent },
 ];
 
 @NgModule({
