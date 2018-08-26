@@ -2,7 +2,7 @@
   <div class="mpl-header">
     <sd-button typp="default">新增</sd-button>
   </div>
-  <div *ngFor="let item of postsList" class="item clear-fix">
+  <div *ngFor="let item of postsList" class="item clearfix">
     <div class="left">
       <p class="title">{{ item.title }}</p>
       <span class="time">{{ item.created_at * 1000 | date: 'fullDate' }}</span> | 

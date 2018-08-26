@@ -9,6 +9,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { PostService } from '../../../post/post.service';
+import { Post } from 'src/app/model/post';
 
 import transfer from 'markdown-sd';
 
@@ -19,7 +20,7 @@ import transfer from 'markdown-sd';
 })
 export class ManagePostDetailComponent implements OnInit {
   private postId: any;
-  private postInfo: object;
+  private postInfo: Post;
   private inputMarkdown: string;
   constructor(private route: ActivatedRoute, private postService: PostService) { }
 
