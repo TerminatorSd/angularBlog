@@ -36,3 +36,7 @@ textarea {
   width: 1200px;
   margin: 20px auto;
 }
+
+.ml-20 {
+  margin-left: 20px;
+}
