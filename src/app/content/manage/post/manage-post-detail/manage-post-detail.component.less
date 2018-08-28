@@ -1,8 +1,16 @@
 .container {
-  .content {
+  .mpd-header {
+    margin: 10px 0;
+    input {
+      padding: 0 8px;
+      width: 800px;
+      height: 30px;
+    }
+  }
+  .mpd-content {
     textarea {
       width: 560px;
-      height: 800px;
+      height: 660px;
       &:nth-child(2) {
         margin-left: 20px;
       }
@@ -10,13 +18,10 @@
     .html {
       float: right;
       width: 560px;
-      height: 800px;
+      height: 660px;
       padding: 8px;
       border: 1px solid #e1e1e1;
+      overflow: auto;
     }
   }
-}
-
-.ml-20 {
-  margin-left: 20px;
 }

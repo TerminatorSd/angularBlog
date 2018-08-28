@@ -17,8 +17,11 @@ html {
   clear: both;
 }
 
-.fl-right {
+.fr {
   float: right;
+}
+.fl {
+  float: left;
 }
 
 ul li {
@@ -30,6 +33,9 @@ a {
 textarea {
   padding: 8px 12px;
   border-color: #e1e1e1;
+}
+p {
+  margin: 12px 0;
 }
 
 .container {

@@ -41,6 +41,14 @@ export class PostService {
       );
   }
 
+  addPost(post: any): Observable<any> {
+    return this.http.post<any>(`${this.domain}/posts/add`, post, httpOptions)
+      .pipe(
+        tap(res => this.log('add detail')),
+        catchError(this.handleError('add', []))
+      );
+  }
+
   /** GET heroes from the server */
   // getHeroes (): Observable<any> {
   //   return this.http.get<any>(this.heroesUrl)

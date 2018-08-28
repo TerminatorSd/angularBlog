@@ -6,14 +6,20 @@
 @desc manage post detail
 -->
 
-<div class="container" *ngIf="postInfo">
-  <div class="content">
-    <textarea name="" id="markdown" cols="30" rows="10">{{ postInfo.markdown }}</textarea>
-    <div class="html">
-      {{ postInfo.html }}
-    </div>
+<div *ngIf="postInfo" class="container">
+  <div class="mpd-header">
+    <input [(ngModel)]="postInfo.title" placeholder="title">
+    <!-- <select name="" id="">
+      <option *ngFor="let item of" value=""></option>
+    </select> -->
+    <sd-button *ngIf="!newFlag" class="fr" type="default" (click)="publishBlog()">更新</sd-button>
+    <sd-button *ngIf="newFlag" class="fr" type="default" (click)="addNewBlog()">发布</sd-button>
   </div>
-  <div class="footer">
-    <sd-button type="default" (click)="publishBlog()">发布</sd-button>
+  <div class="mpd-content">
+    <textarea [(ngModel)]="postInfo.markdown" name="" id="markdown" cols="30" rows="10">{{ postInfo.markdown }}</textarea>
+    <div class="html" [innerHTML]="postInfo.html"></div>
+  </div>
+  <div class="mpd-footer">
+    
   </div>
 </div>

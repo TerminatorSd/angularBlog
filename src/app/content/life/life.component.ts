@@ -8,7 +8,7 @@ import { LifeService } from 'src/app/service/life.service';
   styleUrls: ['./life.component.less']
 })
 export class LifeComponent implements OnInit {
-
+  private inputStr: string;
   private sharedInfo: LifeShare = new LifeShare();
 
   constructor(private lifeService: LifeService) { }
@@ -17,7 +17,7 @@ export class LifeComponent implements OnInit {
   }
 
   publishShare() {
-    this.sharedInfo.content = document.querySelector('#inputStr').value;
+    this.sharedInfo.content = this.inputStr;
     this.sharedInfo.location = 'China ~ Guangzhou';
     this.lifeService.addLife(this.sharedInfo)
       .subscribe(res => {

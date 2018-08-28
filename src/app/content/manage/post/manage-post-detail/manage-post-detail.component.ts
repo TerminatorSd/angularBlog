@@ -8,7 +8,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { PostService } from '../../../post/post.service';
+import { PostService } from 'src/app/service/post.service';
 import { Post } from 'src/app/model/post';
 
 import transfer from 'markdown-sd';
@@ -19,6 +19,7 @@ import transfer from 'markdown-sd';
   styleUrls: ['./manage-post-detail.component.less']
 })
 export class ManagePostDetailComponent implements OnInit {
+  private newFlag = false;
   private postId: any;
   private postInfo: Post;
   private inputMarkdown: string;
@@ -27,7 +28,13 @@ export class ManagePostDetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe((params: Params) => {
       this.postId = params.get('id');
-      this.getPostDetail();
+      // postId 为0 表示是新增
+      if (this.postId !== '0') {
+        this.getPostDetail();
+      } else {
+        this.newFlag = true;
+        this.postInfo = new Post();
+      }
     });
   }
 
@@ -43,16 +50,30 @@ export class ManagePostDetailComponent implements OnInit {
   }
 
   publishBlog() {
-    const inputStr = document.querySelector('#markdown').value;
-    this.postInfo.markdown = inputStr;
-    this.postInfo.html = transfer(inputStr);
+    this.postInfo.html = transfer(this.postInfo.markdown);
     // 发送更新请求
     this.postService.updatePost(this.postInfo)
       .subscribe(res => {
         if (res.code === 0) {
-          this.postInfo = res.data;
+          // alert('ok');
+          // this.postInfo = res.data;
         } else {
-          console.log('update post detail failed');
+          alert('update post detail failed');
+        }
+      });
+  }
+
+  addNewBlog() {
+    this.postInfo.markdown = this.postInfo.markdown;
+    this.postInfo.html = transfer(this.postInfo.markdown);
+    // 发送更新请求
+    this.postService.addPost(this.postInfo)
+      .subscribe(res => {
+        if (res.code === 0) {
+          // alert('ok');
+          // this.postInfo = res.data;
+        } else {
+          alert('update post detail failed');
         }
       });
   }
