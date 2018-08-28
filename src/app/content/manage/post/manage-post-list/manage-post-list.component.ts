@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PostService } from '../../../post/post.service';
+import { PostService } from 'src/app/service/post.service';
 
 @Component({
   selector: 'app-manage-post-list',
@@ -23,6 +23,17 @@ export class ManagePostListComponent implements OnInit {
           this.postsList = res.data;
         } else {
           console.log('get post list failed');
+        }
+      });
+  }
+
+  deletePost(id: string) {
+    this.postService.deletePost(id)
+      .subscribe(res => {
+        if (res.code === 0) {
+          this.getPostList();
+        } else {
+          alert('delete post failed');
         }
       });
   }

@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { PostService } from 'src/app/service/post.service';
 import { Post } from 'src/app/model/post';
+import { FileUploader} from 'ng2-file-upload/file-upload/file-uploader.class';
 
 import transfer from 'markdown-sd';
 
@@ -47,6 +48,20 @@ export class ManagePostDetailComponent implements OnInit {
           console.log('get post detail failed');
         }
       });
+  }
+
+  uploadImg(event) {
+    // const imgFile: File = event.target.files[0];
+    // const formData = new FormData();
+    // formData.append('file', imgFile, imgFile.name);
+    // // upload
+    // this.postService.uploadImg(formData)
+    //   .subscribe(res => {
+    //     if (res.code === 0) {
+    //     } else {
+    //       alert('upload img failed');
+    //     }
+    //   });
   }
 
   publishBlog() {

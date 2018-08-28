@@ -10,6 +10,10 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+const imgHeaders = {
+  headers: new HttpHeaders({'Content-Type': 'multipart/form-data', 'Accept': 'application/json'})
+};
+
 @Injectable({ providedIn: 'root' })
 export class PostService {
 
@@ -46,6 +50,22 @@ export class PostService {
       .pipe(
         tap(res => this.log('add detail')),
         catchError(this.handleError('add', []))
+      );
+  }
+
+  deletePost(id: string): Observable<any> {
+    return this.http.post<any>(`${this.domain}/posts/delete`, {id: id}, httpOptions)
+      .pipe(
+        tap(res => this.log('delete post')),
+        catchError(this.handleError('post', []))
+      );
+  }
+
+  uploadImg(data: FormData): Observable<any> {
+    return this.http.post<any>(`${this.domain}/posts/upload`, data, imgHeaders)
+      .pipe(
+        tap(res => this.log('upload img')),
+        catchError(this.handleError('img', []))
       );
   }
 
