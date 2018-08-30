@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LifeComponent } from './life.component';
+import { ReadingComponent } from './reading.component';
 
-describe('LifeComponent', () => {
-  let component: LifeComponent;
-  let fixture: ComponentFixture<LifeComponent>;
+describe('ReadingComponent', () => {
+  let component: ReadingComponent;
+  let fixture: ComponentFixture<ReadingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LifeComponent ]
+      declarations: [ ReadingComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LifeComponent);
+    fixture = TestBed.createComponent(ReadingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

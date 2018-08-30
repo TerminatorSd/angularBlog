@@ -11,7 +11,7 @@ import { PostListComponent } from './content/post/post-list/post-list.component'
 import { SinglePostComponent } from './content/post/post-list/single-post/single-post.component';
 import { PostDetailComponent } from './content/post/post-detail/post-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { LifeComponent } from './content/life/life.component';
+import { ReadingComponent } from './content/reading/reading.component';
 import { AboutComponent } from './content/about/about.component';
 import { ManagePostListComponent } from './content/manage/post/manage-post-list/manage-post-list.component';
 import { ManagePostDetailComponent } from './content/manage/post/manage-post-detail/manage-post-detail.component';
@@ -26,7 +26,7 @@ import { ButtonComponent } from './basic/button/button.component';
     PostListComponent,
     SinglePostComponent,
     PostDetailComponent,
-    LifeComponent,
+    ReadingComponent,
     AboutComponent,
     ManagePostListComponent,
     ManagePostDetailComponent,

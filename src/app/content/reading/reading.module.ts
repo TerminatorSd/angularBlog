@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { LifeComponent } from './life.component';
+import { ReadingComponent } from './reading.component';
 import { ButtonModule } from 'src/app/basic/button/button.module';
 
 @NgModule({
   imports: [
   ],
-  exports: [ LifeComponent ],
+  exports: [ ReadingComponent ],
   declarations: []
 })
 
-export class LifeModule { }
+export class ReadingModule { }

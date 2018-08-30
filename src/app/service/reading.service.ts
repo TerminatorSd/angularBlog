@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { MessageService } from './message.service';
-import { LifeShare } from '../model/life-share';
+import { Reading } from '../model/reading';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -13,27 +13,27 @@ const httpOptions = {
 
 @Injectable({ providedIn: 'root' })
 
-export class LifeService {
+export class ReadingService {
 
   private domain = 'http://127.0.0.1:3000';  // URL to web api
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
-  addLife (item: LifeShare): Observable<any> {
-    return this.http.post<any>(`${this.domain}/all/test`, item)
-      .pipe(
-        tap(res => this.log('add life share')),
-        catchError(this.handleError('add life share', []))
-      );
+  getList(): Observable<any> {
+  return this.http.get<any>(`${this.domain}/reading/list`)
+    .pipe(
+      tap(res => this.log('fetched list')),
+      catchError(this.handleError('getList', []))
+    );
   }
 
-//   getDetail(id): Observable<any> {
-//     return this.http.get<any>(`${this.domain}/posts/detail?id=${id}`)
-//       .pipe(
-//         tap(res => this.log('fetched detail')),
-//         catchError(this.handleError('getList', []))
-//       );
-//   }
+  addReading (item: Reading): Observable<any> {
+    return this.http.post<any>(`${this.domain}/reading/add`, item)
+      .pipe(
+        tap(res => this.log('add reading share')),
+        catchError(this.handleError('add reading share', []))
+      );
+  }
 
 //   updatePost(post: any): Observable<any> {
 //     return this.http.post<any>(`${this.domain}/posts/update`, post, httpOptions)
