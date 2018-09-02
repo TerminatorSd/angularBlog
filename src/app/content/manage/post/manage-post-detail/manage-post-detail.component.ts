@@ -51,17 +51,19 @@ export class ManagePostDetailComponent implements OnInit {
   }
 
   uploadImg(event) {
-    const imgFile: File = event.target.files[0];
-    const formData = new FormData();
-    formData.append('file', imgFile, imgFile.name);
-    // upload
-    this.postService.uploadImg(formData)
-      .subscribe(res => {
-        if (res.code === 0) {
-        } else {
-          alert('upload img failed');
-        }
-      });
+    // const imgFile: File = event.target.files[0];
+    // console.log(baseRes);
+    // console.log(imgFile);
+    // const formData = new FormData();
+    // formData.append('file', imgFile, imgFile.name);
+    // // upload
+    // this.postService.uploadImg(formData)
+    //   .subscribe(res => {
+    //     if (res.code === 0) {
+    //     } else {
+    //       alert('upload img failed');
+    //     }
+    //   });
   }
 
   publishBlog() {

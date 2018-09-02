@@ -11,7 +11,7 @@ const httpOptions = {
 };
 
 const imgHeaders = {
-  headers: new HttpHeaders({'Content-Type': 'multipart/form-data', 'Accept': 'application/json'})
+  headers: new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded', 'Accept': 'application/json'})
 };
 
 @Injectable({ providedIn: 'root' })
