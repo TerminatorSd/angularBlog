@@ -25,6 +25,7 @@ export class ReadingComponent implements OnInit {
       .subscribe(res => {
         if (res.code === 0) {
           alert('fine');
+          this.getList();
         } else {
           console.log('add reading failed');
         }
