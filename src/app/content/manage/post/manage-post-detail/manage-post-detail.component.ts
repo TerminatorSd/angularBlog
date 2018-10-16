@@ -65,14 +65,14 @@ export class ManagePostDetailComponent implements OnInit {
       console.log(e.target);
       postData.url = e.target.result;
       // 上传图片
-      // this.postService.uploadImg(postData)
-      //   .subscribe(res => {
-      //     if (res.code === 0) {
-      //       console.log('fine');
-      //     } else {
-      //       alert('upload img failed');
-      //     }
-      //   });
+      this.postService.uploadImg(postData)
+        .subscribe(res => {
+          if (res.code === 0) {
+            console.log('fine');
+          } else {
+            alert('upload img failed');
+          }
+        });
     };
     a.readAsDataURL(imgFile);
   }
