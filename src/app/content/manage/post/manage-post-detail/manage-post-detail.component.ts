@@ -74,7 +74,7 @@ export class ManagePostDetailComponent implements OnInit {
       //     }
       //   });
     };
-    // a.readAsDataURL(imgFile);
+    a.readAsDataURL(imgFile);
   }
 
   publishBlog() {
