@@ -61,12 +61,40 @@ export class PostService {
       );
   }
 
-  uploadImg(data: FormData): Observable<any> {
-    return this.http.post<any>(`${this.domain}/posts/upload`, data, imgHeaders)
+  uploadImg(data: Object): Observable<any> {
+    return this.http.post<any>(`${this.domain}/posts/upload`, this.toQueryString(data), imgHeaders)
       .pipe(
         tap(res => this.log('upload img')),
         catchError(this.handleError('img', []))
       );
+  }
+
+  toQueryString(obj) {
+    let result = [];
+    for (let key in obj) {
+      if (obj[key]) {
+        key = encodeURIComponent(key);
+        const values = obj[key];
+        if (values && values.constructor === Array) {
+          const queryValues = [];
+          for (let i = 0, len = values.length, value; i < len; i++) {
+            value = values[i];
+            queryValues.push(this.toQueryPair(key, value));
+          }
+          result = result.concat(queryValues);
+        } else {
+          result.push(this.toQueryPair(key, values));
+        }
+      }
+   }
+    return result.join('&');
+  }
+
+  toQueryPair(key, value) {
+    if (typeof value === 'undefined') {
+      return key;
+    }
+    return key + '=' + encodeURIComponent(value === null ? '' : String(value));
   }
 
   /** GET heroes from the server */

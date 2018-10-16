@@ -51,19 +51,30 @@ export class ManagePostDetailComponent implements OnInit {
   }
 
   uploadImg(event) {
-    // const imgFile: File = event.target.files[0];
-    // console.log(baseRes);
-    // console.log(imgFile);
-    // const formData = new FormData();
-    // formData.append('file', imgFile, imgFile.name);
-    // // upload
-    // this.postService.uploadImg(formData)
-    //   .subscribe(res => {
-    //     if (res.code === 0) {
-    //     } else {
-    //       alert('upload img failed');
-    //     }
-    //   });
+    const imgFile: File = event.target.files[0];
+    // post data
+    const postData = {
+      namez: imgFile.name,
+      size: imgFile.size,
+      type: imgFile.type,
+      url: ''
+    };
+    const a = new FileReader();
+    a.onload = (e) => {
+      // 获取base64
+      console.log(e.target);
+      postData.url = e.target.result;
+      // 上传图片
+      // this.postService.uploadImg(postData)
+      //   .subscribe(res => {
+      //     if (res.code === 0) {
+      //       console.log('fine');
+      //     } else {
+      //       alert('upload img failed');
+      //     }
+      //   });
+    };
+    // a.readAsDataURL(imgFile);
   }
 
   publishBlog() {
