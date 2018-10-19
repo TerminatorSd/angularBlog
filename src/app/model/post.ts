@@ -3,7 +3,7 @@ export class Post {
   title: string;
   markdown: string;
   html: string;
-  feature_img: string;
+  feature_image: string;
   status: string;
   label: string;
   created_at: number;

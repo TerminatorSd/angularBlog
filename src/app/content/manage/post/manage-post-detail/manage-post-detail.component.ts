@@ -54,7 +54,7 @@ export class ManagePostDetailComponent implements OnInit {
     const imgFile: File = event.target.files[0];
     // post data
     const postData = {
-      namez: imgFile.name,
+      name: imgFile.name,
       size: imgFile.size,
       type: imgFile.type,
       url: ''
@@ -68,7 +68,7 @@ export class ManagePostDetailComponent implements OnInit {
       this.postService.uploadImg(postData)
         .subscribe(res => {
           if (res.code === 0) {
-            console.log('fine');
+            this.postInfo.feature_image = res.data.url;
           } else {
             alert('upload img failed');
           }
@@ -77,12 +77,14 @@ export class ManagePostDetailComponent implements OnInit {
     a.readAsDataURL(imgFile);
   }
 
-  publishBlog() {
+  updateBlog() {
     this.postInfo.html = transfer(this.postInfo.markdown);
+    console.log(this.postInfo);
     // 发送更新请求
     this.postService.updatePost(this.postInfo)
       .subscribe(res => {
         if (res.code === 0) {
+          console.log('fine');
           // alert('ok');
           // this.postInfo = res.data;
         } else {
@@ -98,6 +100,7 @@ export class ManagePostDetailComponent implements OnInit {
     this.postService.addPost(this.postInfo)
       .subscribe(res => {
         if (res.code === 0) {
+          console.log('fine');
           // alert('ok');
           // this.postInfo = res.data;
         } else {
