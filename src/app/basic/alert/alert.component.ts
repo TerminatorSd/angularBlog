@@ -9,7 +9,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-alert',
+  selector: 'sd-alert',
   templateUrl: './alert.component.html',
   styleUrls: ['./alert.component.less']
 })
@@ -19,12 +19,19 @@ export class AlertComponent implements OnInit {
   private _type = 'success';
 
   @Input()
+  get text() {
+    return this._text;
+  }
+  set text(value: string) {
+    this._text = value;
+  }
+
+  @Input()
   get type() {
     return this._type;
   }
   set type(value: string) {
     this._type = value;
-    this.setClassMap();
   }
 
   constructor() { }

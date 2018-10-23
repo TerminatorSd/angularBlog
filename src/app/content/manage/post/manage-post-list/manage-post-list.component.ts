@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/service/post.service';
+import { MessageService } from 'src/app/service/message.service';
 
 @Component({
   selector: 'app-manage-post-list',
@@ -9,8 +10,13 @@ import { PostService } from 'src/app/service/post.service';
 export class ManagePostListComponent implements OnInit {
 
   private postsList: any;
+  private alertVar: Object = {
+    show: false,
+    text: 'alert',
+    type: 'success'
+  };
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.getPostList();
@@ -31,9 +37,10 @@ export class ManagePostListComponent implements OnInit {
     this.postService.deletePost(id)
       .subscribe(res => {
         if (res.code === 0) {
+          this.messageService.showAlert(this, '删除成功~', 'success');
           this.getPostList();
         } else {
-          alert('delete post failed');
+          this.messageService.showAlert(this, '删除失败!', 'error');
         }
       });
   }

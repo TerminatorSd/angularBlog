@@ -13,4 +13,13 @@ export class MessageService {
   clear() {
     this.messages = [];
   }
+
+  showAlert(ctx, text, type) {
+    ctx.alertVar.show = true;
+    ctx.alertVar.text = text;
+    ctx.alertVar.type = type;
+    setTimeout(() => {
+      ctx.alertVar.show = false;
+    }, 800);
+  }
 }

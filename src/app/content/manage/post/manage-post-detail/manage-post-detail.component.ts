@@ -9,8 +9,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { PostService } from 'src/app/service/post.service';
+import { MessageService } from 'src/app/service/message.service';
 import { Post } from 'src/app/model/post';
-import { FileUploader} from 'ng2-file-upload/file-upload/file-uploader.class';
 
 import transfer from 'markdown-sd';
 
@@ -24,7 +24,12 @@ export class ManagePostDetailComponent implements OnInit {
   private postId: any;
   private postInfo: Post;
   private inputMarkdown: string;
-  constructor(private route: ActivatedRoute, private postService: PostService) { }
+  private alertVar: Object = {
+    show: false,
+    text: 'alert',
+    type: 'success'
+  };
+  constructor(private route: ActivatedRoute, private postService: PostService, private messageService: MessageService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: Params) => {
@@ -84,11 +89,9 @@ export class ManagePostDetailComponent implements OnInit {
     this.postService.updatePost(this.postInfo)
       .subscribe(res => {
         if (res.code === 0) {
-          console.log('fine');
-          // alert('ok');
-          // this.postInfo = res.data;
+          this.messageService.showAlert(this, '更新成功', 'success');
         } else {
-          alert('update post detail failed');
+          this.messageService.showAlert(this, '更新失败', 'error');
         }
       });
   }
@@ -100,13 +103,10 @@ export class ManagePostDetailComponent implements OnInit {
     this.postService.addPost(this.postInfo)
       .subscribe(res => {
         if (res.code === 0) {
-          console.log('fine');
-          // alert('ok');
-          // this.postInfo = res.data;
+          this.messageService.showAlert(this, '更新成功', 'success');
         } else {
-          alert('update post detail failed');
+          this.messageService.showAlert(this, '更新失败', 'error');
         }
       });
   }
-
 }
