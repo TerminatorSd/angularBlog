@@ -65,7 +65,8 @@ export class ManagePostDetailComponent implements OnInit {
       url: ''
     };
     const a = new FileReader();
-    a.onload = (e) => {
+    // Hack: any is not the best solution
+    a.onload = (e: any) => {
       // 获取base64
       console.log(e.target);
       postData.url = e.target.result;
@@ -75,7 +76,7 @@ export class ManagePostDetailComponent implements OnInit {
           if (res.code === 0) {
             this.postInfo.feature_image = res.data.url;
           } else {
-            alert('upload img failed');
+            this.messageService.showAlert(this, '上传图片失败', 'error');
           }
         });
     };
