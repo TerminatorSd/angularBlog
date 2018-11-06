@@ -13,7 +13,6 @@ import { Post } from 'src/app/model/post';
 
 import transfer from 'markdown-sd';
 
-
 @Component({
   selector: 'app-manage-post-detail',
   templateUrl: './manage-post-detail.component.html',
