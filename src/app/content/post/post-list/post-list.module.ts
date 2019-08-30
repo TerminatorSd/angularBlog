@@ -13,12 +13,12 @@ import { PostService } from '../post.service';
 
 @NgModule({
   declarations: [
+    SinglePostComponent,
+    PostListComponent
   ],
   imports: [
-    SinglePostComponent
   ],
   exports: [
-    PostListComponent
   ],
   providers: [PostService],
 })
