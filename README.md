@@ -8,7 +8,7 @@ npm install
 ng serve
 ng build
 ng g m module-name
-ng g c component-
+ng g c component-name
 ng g directive|pipe|service|class|guard|interface|enum|module
 ```
 
