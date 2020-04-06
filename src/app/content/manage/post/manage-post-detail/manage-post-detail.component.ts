@@ -12,6 +12,7 @@ import { MessageService } from 'src/app/service/message.service';
 import { Post } from 'src/app/model/post';
 
 import transfer from 'markdown-sd';
+import { BroadcastService } from 'src/app/service/broadcast.service';
 
 @Component({
   selector: 'app-manage-post-detail',
@@ -28,7 +29,8 @@ export class ManagePostDetailComponent implements OnInit {
     text: 'alert',
     type: 'success'
   };
-  constructor(private route: ActivatedRoute, private postService: PostService, private messageService: MessageService) { }
+  constructor(private route: ActivatedRoute, private postService: PostService, private messageService: MessageService,
+    private bcService: BroadcastService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: Params) => {
@@ -89,9 +91,9 @@ export class ManagePostDetailComponent implements OnInit {
     this.postService.updatePost(this.postInfo)
       .subscribe(res => {
         if (res.code === 0) {
-          this.messageService.showAlert(this, '更新成功', 'success');
+          this.bcService.evtBus.emit([{ severity: 'info', summary: '操作信息', detail: `更新成功~`, life: 2000 }]);
         } else {
-          this.messageService.showAlert(this, '更新失败', 'error');
+          this.bcService.evtBus.emit([{ severity: 'danger', summary: '操作信息', detail: `更新失败！`, life: 2000 }]);
         }
       });
   }
@@ -103,9 +105,9 @@ export class ManagePostDetailComponent implements OnInit {
     this.postService.addPost(this.postInfo)
       .subscribe(res => {
         if (res.code === 0) {
-          this.messageService.showAlert(this, '更新成功', 'success');
+          this.bcService.evtBus.emit([{ severity: 'success', summary: '操作信息', detail: `添加成功~`, life: 2000 }]);
         } else {
-          this.messageService.showAlert(this, '更新失败', 'error');
+          this.bcService.evtBus.emit([{ severity: 'danger', summary: '操作信息', detail: `添加失败- -`, life: 2000 }]);
         }
       });
   }
