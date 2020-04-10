@@ -10,7 +10,8 @@ import { PostService } from '../post.service';
 export class PostDetailComponent implements OnInit {
 
   private postId: number;
-  private postContent: object;
+  private imgPath: string;
+  private postContent: any;
 
   constructor(private route: ActivatedRoute, private postService: PostService) { }
 
@@ -26,6 +27,7 @@ export class PostDetailComponent implements OnInit {
       .subscribe(res => {
         if (res.code === 0) {
           this.postContent = res.data;
+          this.imgPath = `http://dance.shaodongweb.top/angularBlogBk/upload_img/${this.postContent.feature_image}`;
         } else {
           console.log('get post detail failed');
         }

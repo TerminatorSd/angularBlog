@@ -9,9 +9,13 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SinglePostComponent implements OnInit {
 
   @Input() post;
+  imgPath: string;
+
   constructor() { }
 
   ngOnInit() {
+    this.imgPath = `http://dance.shaodongweb.top/angularBlogBk/upload_img/${this.post.feature_image}`;
+
     // console.log(this.post);
   }
 }
