@@ -40,7 +40,7 @@ p {
 }
 
 .container {
-  width: 1200px;
+  max-width: 960px;
   margin: 20px auto;
 }
 
