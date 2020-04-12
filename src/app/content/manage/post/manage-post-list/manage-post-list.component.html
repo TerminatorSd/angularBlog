@@ -1,7 +1,8 @@
 <div class="container">
   <d-toast [value]="msgs"></d-toast>
   <div class="mpl-header">
-    <d-button bsStyle="primary"[routerLink]="['/manage/detail', 0]">新增</d-button>
+    <d-button bsStyle="primary" [routerLink]="['/manage/detail', 0]">新增</d-button>
+    <d-button class="ml-20" bsStyle="primary" [routerLink]="['/admin/articles/new', 0]">MD</d-button>
   </div>
   <div *ngFor="let item of postsList" class="item clearfix">
     <div class="left">

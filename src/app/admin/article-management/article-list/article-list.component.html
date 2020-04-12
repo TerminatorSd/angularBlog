@@ -14,17 +14,7 @@
         <li role="menuitem"><a class="devui-dropdown-item" (click)="batchDelete()">批量删除</a></li>
       </ul>
     </div>
-    <div class="total-number">(总条数：{{total}})</div>
-    <d-pagination
-      [total]="total"
-      [pageSize]="pageSize"
-      [pageIndex]="pageIndex"
-      (pageSizeChange)="pageSizeChange($event)"
-      (pageIndexChange)="pageIndexChange($event)"
-      [lite]="true"
-      [canChangePageSize]="true"
-      [haveConfigMenu]="true">
-    </d-pagination>
+
   </div>
 </div>
 
@@ -76,13 +66,17 @@
 </d-data-table>
 
 <d-pagination
-  class="single-pagination"
+  class="text-end"
   [total]="total"
-  [pageSize]="pageSize"
-  [pageIndex]="pageIndex"
-  (pageIndexChange)="pageIndexChange($event)"
-  [size]="'sm'">
+  [(pageSize)]="pageSize"
+  [totalItemText]="'总条数'"
+  [(pageIndex)]="pageIndex"
+  [canViewTotal]="true"
+  [canChangePageSize]="true"
+  [lite]="true"
+>
 </d-pagination>
+
 
 
 

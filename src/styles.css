@@ -47,3 +47,6 @@ p {
 .ml-20 {
   margin-left: 20px;
 }
+.text-end {
+  text-align: end;;
+}
