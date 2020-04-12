@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { RouterModule, Routes } from '@angular/router';
 import { PostListComponent } from './content/post/post-list/post-list.component';
@@ -17,6 +16,14 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'manage/list', component: ManagePostListComponent },
   { path: 'manage/detail/:id', component: ManagePostDetailComponent },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+  }
 ];
 
 @NgModule({
